@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<div class="container">
+    <h4 class="mt-4 border-bottom">マイページ</h4>
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos expedita hic quo repellendus vitae. Labore beatae accusamus sit quis hic. Eveniet inventore ipsa voluptatem. Commodi numquam omnis quos sequi assumenda?
+
+    {% for stripe in stripecustomer_list %}
+        <tr>
+            <td>{{ stripe.user |default:"" }}</td>
+            <td>{{ stripe.ac_name |default:"" }}</td>
+            <td><a href="{% url 'edit_post' stripe.pk %}" class="btn btn-primary btn-sm my-3">登録する</a></td>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+{% endif %}
+{% endblock content %}

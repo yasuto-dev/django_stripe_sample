@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+
+  <body>
+  {% block content %}
+    <div class="container mt-5">
+      {% if subscription.status == "active" %}
+        <h4>{{ user }}様のステータス:</h4>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">
+              {{ product.description }}
+            </p>
+          </div>
+        </div>
+
+      <p><a href="{% url 'subscriptions-create' %}">Return to the dashboard</a></p>
+
+      {% else %}
+        <button type="submit" class="btn btn-primary" id="submitBtn">サブスクリプション登録する</button>
+
+
+        {% endif %}
+    </div>
+{% endblock %}
+
+  </body>
+</html>
