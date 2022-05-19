@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from .settings_secret import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -20,8 +21,6 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&zh09&src7nab9=*&@a5yj8(-aqy35a_g_jkx(%(a*hj306q!x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -129,11 +128,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [Path(BASE_DIR).joinpath('static')]
 
 
-STRIPE_PUBLISHABLE_KEY = 'pk_test_51Jyy8UC02j8tQecH6CtyOOgrM7oNnt9VG1RCJJKzjNHyNFozfWuYXmawNvZXC375kwhdbU1Zapy2UrqTMYZo4HzH00l8RMsMRM'
-STRIPE_SECRET_KEY = 'sk_test_51Jyy8UC02j8tQecHzfSTfAGyGyAWSbtbLN51Kd2ejpq0jAEEqhGQNfuWBzRAUGpXbnmBBot17Rm5dBkId5Bu10TZ00MNCEHiw1'
-STRIPE_PRICE_ID = 'price_1JyyA3C02j8tQecHgLHOLhHy'
-STRIPE_ENDPOINT_SECRET = 'whsec_pM2wuSREZ0CfYRaDAnpaPDguJmcqPOVy'
-
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -152,3 +146,4 @@ LOGIN_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
